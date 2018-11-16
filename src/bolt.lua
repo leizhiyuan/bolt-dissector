@@ -52,20 +52,20 @@ local vs_responsestatus = {
 }
 
 -- declare the fields
-local f_proto = ProtoField.uint8("bolt.proto", "protocode", base.Dec, vs_proto)
-local f_type = ProtoField.uint8("bolt.type", "type", base.Dec, vs_type)
-local f_cmdcode = ProtoField.uint16("bolt.cmdcode", "cmdcode", base.Dec, vs_cmdcode)
-local f_version2 = ProtoField.uint8("bolt.version", "version", base.Dec, vs_version2)
+local f_proto = ProtoField.uint8("bolt.proto", "Protocode", base.Dec, vs_proto)
+local f_type = ProtoField.uint8("bolt.type", "Type", base.Dec, vs_type)
+local f_cmdcode = ProtoField.uint16("bolt.cmdcode", "Cmdcode", base.Dec, vs_cmdcode)
+local f_version2 = ProtoField.uint8("bolt.version", "Version", base.Dec, vs_version2)
 local f_req_id = ProtoField.uint32("bolt.reqid", "RequestID", base.DEC)
-local f_codec = ProtoField.uint8("bolt.codec", "codec", base.DEC, vs_codec)
-local f_timeout = ProtoField.uint32("bolt.timeout", "timeout", base.DEC)
+local f_codec = ProtoField.uint8("bolt.codec", "Codec", base.DEC, vs_codec)
+local f_timeout = ProtoField.uint32("bolt.timeout", "Timeout", base.DEC)
 local f_response_status = ProtoField.uint32("bolt.response.status", "Response Status", base.DEC, vs_responsestatus)
-local f_classlen = ProtoField.uint16("bolt.classlen", "classlen", base.DEC)
-local f_headerlen = ProtoField.uint16("bolt.headerlen", "headerlen", base.DEC)
-local f_contentlen = ProtoField.uint32("bolt.contentlen", "contentlen", base.DEC)
-local f_class = ProtoField.string("bolt.class", "class")
-local f_header = ProtoField.bytes("bolt.header", "header")
-local f_content = ProtoField.bytes("bolt.content", "content")
+local f_classlen = ProtoField.uint16("bolt.classlen", "Classlen", base.DEC)
+local f_headerlen = ProtoField.uint16("bolt.headerlen", "Headerlen", base.DEC)
+local f_contentlen = ProtoField.uint32("bolt.contentlen", "Contentlen", base.DEC)
+local f_class = ProtoField.string("bolt.class", "Class")
+local f_header = ProtoField.bytes("bolt.header", "Header")
+local f_content = ProtoField.bytes("bolt.content", "Content")
 
 bolt_proto.fields = { f_proto, f_type, f_cmdcode, f_version2, f_req_id, f_codec, f_timeout, f_response_status,
                       f_classlen, f_headerlen, f_contentlen, f_class, f_header, f_content
