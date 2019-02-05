@@ -119,7 +119,7 @@ function bolt_proto.dissector(buffer, pinfo, tree)
     -- Reassembling packets into one PDU
     local pdu_len = get_pdu_length(buffer)
     if pdu_len > buffer:len() then
-        pinfo.desegment_len = pdu_len - buffer:len()
+        pinfo.desegment_len = DESEGMENT_ONE_MORE_SEGMENT
         pinfo.desegment_offset = 0
         return
     end
