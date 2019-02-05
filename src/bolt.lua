@@ -84,9 +84,9 @@ function get_pdu_length(buffer)
                 return 22
             end
             -- 继续
-            local classLen = buffer(14, 2):uint64()
-            local headerLen = buffer(16, 2):uint64()
-            local contentLen = buffer(18, 4):uint64()
+            local classLen = buffer(14, 2):uint()
+            local headerLen = buffer(16, 2):uint()
+            local contentLen = buffer(18, 4):uint()
             return 22 + classLen + headerLen + contentLen
         end
 
@@ -96,9 +96,9 @@ function get_pdu_length(buffer)
                 return 20
             end
             -- 继续
-            local classLen = buffer(12, 2):uint64()
-            local headerLen = buffer(14, 2):uint64()
-            local contentLen = buffer(16, 4):uint64()
+            local classLen = buffer(12, 2):uint()
+            local headerLen = buffer(14, 2):uint()
+            local contentLen = buffer(16, 4):uint()
             return 20 + classLen + headerLen + contentLen
         end
     end
@@ -119,7 +119,7 @@ function bolt_proto.dissector(buffer, pinfo, tree)
     -- Reassembling packets into one PDU
     local pdu_len = get_pdu_length(buffer)
     if pdu_len > buffer:len() then
-        pinfo.desegment_len = DESEGMENT_ONE_MORE_SEGMENT
+        pinfo.desegment_len = pdu_len - buffer:len()
         pinfo.desegment_offset = 0
         return
     end
